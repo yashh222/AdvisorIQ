@@ -1,0 +1,10 @@
+.venv/
+venv/
+.gradio/
+__pycache__/
+*.pyc
+models/
+chroma_store/
+uploads/
+.env
+eval_samples.json

@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: advisoriq
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt && python checker.py && python rag.py
+    startCommand: python app.py
+    healthCheckPath: /
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.3
+      - key: GROQ_API_KEY
+        sync: false
+      - key: LANGCHAIN_TRACING_V2
+        value: "true"
+      - key: LANGCHAIN_PROJECT
+        value: advisoriq
+      - key: GOOGLE_API_KEY
+        sync: false
+      - key: LANGCHAIN_API_KEY
+        sync: false
